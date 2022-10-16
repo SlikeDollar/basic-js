@@ -11,8 +11,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function getEmailDomain(email) {
-  email = email.replace(/(.)*(?=@)/g, '').replace('@', '');
-  return email;
+  return email.replace(/(.)*(?=@)/g, '').replace('@', '');
 }
 
 getEmailDomain('prettyandsimple@example.com');
