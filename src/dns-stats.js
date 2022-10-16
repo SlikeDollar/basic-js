@@ -1,10 +1,10 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { notimplementederror } = require('../extensions/index.js');
 
 /**
- * Given an array of domains, return the object with the appearances of the DNS.
+ * given an array of domains, return the object with the appearances of the dns.
  *
- * @param {Array} domains
- * @return {Object}
+ * @param {array} domains
+ * @return {object}
  *
  * @example
  * domains = [
@@ -13,7 +13,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  'yandex.ru'
  * ]
  *
- * The result should be the following:
+ * the result should be the following:
  * {
  *   '.ru': 3,
  *   '.ru.yandex': 3,
@@ -22,10 +22,32 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  *
  */
-function getDNSStats(/* domains */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function getDNSStats(domains) {
+  let arr = [],
+  arr2 = [];
+
+  domains.forEach(domain => {
+    arr.push(domain.split('.'));
+  });
+
+  arr.forEach(item => {
+  let sum = '';
+    item.reverse().forEach((prev) => {
+     sum = sum + `.${prev}`;
+     arr2.push(sum);
+    });
+  });
+
+  let temp = {}
+
+  arr2.forEach(i => {
+   temp[i] = (temp[i] || 0) + 1 
+  });
+
+  return temp;
 }
+
+getDNSStats(['code.yandex.ru','music.yandex.ru','yandex.ru']);
 
 module.exports = {
   getDNSStats
