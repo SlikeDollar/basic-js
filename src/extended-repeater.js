@@ -73,10 +73,11 @@ function repeater(str, options) {
 }
 
  console.log( repeater('STRING', { repeatTimes: 3, separator: '**', 
- addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00' }));
+ addition: 'PLUS', additionRepeatTimes: 123, additionSeparator: '00' }));
 
 // str => addition chain + adding => repeatTimes (pushing into an array) => separator (join method)
 // addition => additionRepeatTimes (pushing into an array) => additionSeparator (join method)
+
 module.exports = {
   repeater
 };
